@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ReqResInApiTests" project="restclient" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="dmv.spring.demo.ReqResInApiTests" time="4.428">
+    <testcase name="testGetUsers" classname="dmv.spring.demo.ReqResInApiTests" time="2.822"/>
+    <testcase name="testGetUser404" classname="dmv.spring.demo.ReqResInApiTests" time="0.538"/>
+    <testcase name="testCreateUser" classname="dmv.spring.demo.ReqResInApiTests" time="1.068"/>
+  </testsuite>
+</testrun>

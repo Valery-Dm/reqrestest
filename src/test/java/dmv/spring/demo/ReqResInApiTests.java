@@ -41,12 +41,19 @@ public class ReqResInApiTests {
     private static final String HOST = "https://reqres.in/api";
     
     @Test
-    public void testGetRole() {
+    public void testGetUsers() {
         RestAssured.get(HOST + "/users?page=2")
         .then()
         .statusCode(200)
         .body("page", is("2"))
         .body("data.id", hasItems(4, 5, 6));
+    }
+    
+    @Test
+    public void testGetUser404() {
+        RestAssured.get(HOST + "/users/23")
+        .then()
+        .statusCode(404);
     }
     
     /*
