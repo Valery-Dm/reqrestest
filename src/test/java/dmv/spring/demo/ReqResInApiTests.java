@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.is;
 
 import org.junit.Test;
 
+import dmv.spring.demo.entities.User;
 import io.restassured.RestAssured;
 
 public class ReqResInApiTests {
@@ -46,5 +47,32 @@ public class ReqResInApiTests {
         .statusCode(200)
         .body("page", is("2"))
         .body("data.id", hasItems(4, 5, 6));
+    }
+    
+    /*
+     * Message message = new Message();
+message.setMessage("My messagee");
+given().
+       contentType("application/json").
+       body(message).
+when().
+      post("/message");
+      {
+    "name": "morpheus",
+    "job": "leader"
+}
+     */
+    @Test
+    public void testCreateUser() {
+        RestAssured.given()
+        .contentType("application/json")
+        .body(new User("morpheus", "leader"))
+        .when()
+        .post(HOST + "/api/users")
+        .then()
+        .statusCode(201)
+        .body("name", is("morpheus"))
+        .body("job", is("leader"));
+        
     }
 }
